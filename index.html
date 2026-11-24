@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru" class="theme-dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Домашняя страница с поиском, закреплёнными сайтами и настройкой фона.">
+  <meta name="theme-color" content="#0b1220">
+  <title>Новая вкладка</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg" id="bgLayer" aria-hidden="true"></div>
+
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"></path>
+    </symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M12 5v14M5 12h14"></path>
+    </symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <circle cx="5" cy="5" r="1.8"></circle><circle cx="12" cy="5" r="1.8"></circle><circle cx="19" cy="5" r="1.8"></circle>
+      <circle cx="5" cy="12" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="19" cy="12" r="1.8"></circle>
+      <circle cx="5" cy="19" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle><circle cx="19" cy="19" r="1.8"></circle>
+    </symbol>
+    <symbol id="i-more" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4 7.5 8 5.7 8-5.7"></path>
+    </symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-.9 2-2 0-.6-.3-1-.7-1.4-.3-.4-.3-1 .2-1.4.4-.4.9-.5 1.4-.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8Z"></path>
+      <circle cx="7.5" cy="11" r="1.1" fill="currentColor" stroke="none"></circle>
+      <circle cx="10" cy="7" r="1.1" fill="currentColor" stroke="none"></circle>
+      <circle cx="15" cy="7.2" r="1.1" fill="currentColor" stroke="none"></circle>
+      <circle cx="18" cy="11" r="1.1" fill="currentColor" stroke="none"></circle>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="m6 6 12 12M18 6 6 18"></path>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m5 12.5 4.5 4.5L19 7"></path>
+    </symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M3 8a3 3 0 0 1 3-3h3.3c.8 0 1.6.4 2.1 1l1 1.3H18a3 3 0 0 1 3 3V17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3Z"></path>
+    </symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"></path><path d="m14 6 4 4"></path>
+    </symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"></path>
+      <path d="M10 11v6M14 11v6"></path>
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 4h6v6M20 4l-8 8"></path><path d="M19 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4"></path>
+    </symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="8.5" cy="9.5" r="1.4"></circle><path d="m4 17 5-4.5 4 3.5 3-2.5 4 3.5"></path>
+    </symbol>
+    <symbol id="i-arrow-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h13M12 6l6 6-6 6"></path>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3c2.5 2.4 3.8 5.4 3.8 9S14.5 18.6 12 21c-2.5-2.4-3.8-5.4-3.8-9S9.5 5.4 12 3Z"></path>
+    </symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+      <circle cx="12" cy="8.5" r="3.6"></circle><path d="M4.5 20c.8-3.4 3.8-5.3 7.5-5.3s6.7 1.9 7.5 5.3"></path>
+    </symbol>
+    <symbol id="i-drive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M9.7 3.5h4.6l6.2 10.8h-4.6z"></path><path d="m9.7 3.5-6.2 10.8 2.3 4 6.2-10.8z"></path><path d="M5.8 18.3h12.4l2.3-4H8.1z"></path>
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M8 3v4M16 3v4M3.5 10h17"></path>
+    </symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M12 3c1.8 3.4 1.8 5.6 0 9-1.8-3.4-1.8-5.6 0-9Z"></path>
+      <path d="M21 12c-3.4 1.8-5.6 1.8-9 0 3.4-1.8 5.6-1.8 9 0Z"></path>
+      <path d="M12 21c-1.8-3.4-1.8-5.6 0-9 1.8 3.4 1.8 5.6 0 9Z"></path>
+      <path d="M3 12c3.4-1.8 5.6-1.8 9 0-3.4 1.8-5.6 1.8-9 0Z"></path>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.6"></circle>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24">
+      <rect x="2" y="5" width="20" height="14" rx="4.5" fill="currentColor"></rect>
+      <path d="M10 9.3v5.4l4.7-2.7z" fill="#fff"></path>
+    </symbol>
+    <symbol id="i-translate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 5h9M8.5 3v2M11.5 5c-.6 4-3 7-7.5 9"></path><path d="M6.5 9.5c1.7 2.6 4 4.3 7 5"></path><path d="m13 21 4-10 4 10M14.5 17.5h5"></path>
+    </symbol>
+    <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+      <rect x="3" y="6" width="12" height="12" rx="3"></rect><path d="m15 11 6-3.5v9L15 13z"></path>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 3h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path>
+      <path d="M14 3v4h4"></path><path d="M8 12h8M8 16h8"></path>
+    </symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+      <path d="M4 10h16M10 4v16"></path>
+    </symbol>
+    <symbol id="i-slide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="11" rx="2"></rect>
+      <path d="M12 16v3M8 19h8"></path>
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="topbar__right">
+      <a class="pill" href="https://mail.google.com/" aria-label="Открыть Gmail">
+        <svg class="ico" aria-hidden="true"><use href="#i-mail"></use></svg>
+        <span>Gmail</span>
+      </a>
+
+      <div class="apps">
+        <button class="icon-btn" id="appsBtn" type="button" aria-label="Сервисы Google" aria-haspopup="true" aria-expanded="false">
+          <svg class="ico" aria-hidden="true"><use href="#i-dots"></use></svg>
+        </button>
+        <div class="apps-popover" id="appsPopover" role="menu" aria-label="Сервисы Google"></div>
+      </div>
+
+      <a class="avatar" href="https://myaccount.google.com/" target="_blank" rel="noopener" aria-label="Аккаунт Google">
+        <svg class="ico avatar__user" aria-hidden="true"><use href="#i-user"></use></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="content">
+      <form class="search" id="searchForm" role="search" autocomplete="off">
+        <div class="engine" id="engine">
+          <button class="engine__toggle" id="engineToggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Выбрать поисковую систему">
+            <span class="engine__logo" id="engineLogo" aria-hidden="true"></span>
+            <svg class="ico engine__chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+          </button>
+          <div class="engine__menu" id="engineMenu" role="listbox" aria-label="Поисковые системы"></div>
+        </div>
+
+        <label class="sr-only" for="searchInput">Поисковый запрос</label>
+        <input class="search__input" id="searchInput" type="text" inputmode="search" placeholder="Поиск в Google"
+               autocomplete="off" autocapitalize="off" spellcheck="false">
+        <div class="suggest" id="suggestBox" role="listbox" aria-label="Поисковые подсказки" hidden></div>
+      </form>
+
+      <section class="tiles" aria-label="Закреплённые сайты">
+        <div class="tiles__grid" id="tilesGrid"></div>
+      </section>
+    </div>
+  </main>
+
+  <button class="fab" id="settingsBtn" type="button" aria-label="Настроить оформление">
+    <svg class="ico" aria-hidden="true"><use href="#i-palette"></use></svg>
+  </button>
+
+  <dialog class="modal" id="siteDialog" aria-labelledby="siteDialogTitle">
+    <form class="modal__card" id="siteForm" novalidate>
+      <header class="modal__head">
+        <h2 id="siteDialogTitle">Новый сайт</h2>
+        <button class="icon-btn icon-btn--ghost" type="button" data-close aria-label="Закрыть">
+          <svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg>
+        </button>
+      </header>
+
+      <div class="site-preview">
+        <span class="site-preview__icon" id="sitePreviewIcon"></span>
+        <div class="site-preview__text">
+          <strong id="sitePreviewTitle">Название сайта</strong>
+          <span id="sitePreviewHost">example.com</span>
+        </div>
+      </div>
+
+      <label class="field">
+        <span>Название</span>
+        <input id="siteName" type="text" maxlength="32" placeholder="Например, YouTube" autocomplete="off">
+      </label>
+
+      <label class="field">
+        <span>Адрес</span>
+        <input id="siteUrl" type="text" inputmode="url" placeholder="youtube.com" autocomplete="off" autocapitalize="off" spellcheck="false">
+      </label>
+
+      <p class="field-error" id="siteError" role="alert" hidden></p>
+
+      <footer class="modal__foot">
+        <button class="btn btn--ghost" type="button" data-close>Отмена</button>
+        <button class="btn btn--primary" type="submit" id="siteSubmit">Добавить</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal modal--wide" id="folderDialog" aria-labelledby="folderDialogTitle">
+    <div class="modal__card">
+      <header class="modal__head modal__head--folder">
+        <div class="folder-head">
+          <span class="folder-head__icon" aria-hidden="true">
+            <svg class="ico"><use href="#i-folder"></use></svg>
+          </span>
+          <div class="folder-head__text">
+            <label class="sr-only" for="folderName">Название папки</label>
+            <input class="folder-head__name" id="folderName" maxlength="40" autocomplete="off">
+            <span class="folder-head__meta" id="folderMeta">0 сайтов</span>
+          </div>
+        </div>
+        <button class="icon-btn icon-btn--ghost" type="button" data-close aria-label="Закрыть">
+          <svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg>
+        </button>
+      </header>
+
+      <div class="folder-grid" id="folderGrid"></div>
+
+      <footer class="modal__foot modal__foot--split">
+        <button class="btn btn--danger-ghost" id="unfoldFolder" type="button">Распустить папку</button>
+        <button class="btn btn--primary" type="button" data-close>Готово</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog class="modal sheet" id="settingsDialog" aria-labelledby="settingsTitle">
+    <div class="sheet__card">
+      <header class="sheet__head">
+        <h2 id="settingsTitle">Оформление</h2>
+        <button class="icon-btn icon-btn--ghost" type="button" data-close aria-label="Закрыть">
+          <svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg>
+        </button>
+      </header>
+
+      <div class="sheet__body">
+        <section class="setting">
+          <h3>Фон страницы</h3>
+          <div class="swatches" id="bgSwatches"></div>
+
+          <div class="bg-actions">
+            <label class="btn btn--soft file-btn">
+              <input type="file" id="bgUpload" accept="image/*" hidden>
+              <svg class="ico" aria-hidden="true"><use href="#i-image"></use></svg>
+              Своё изображение
+            </label>
+            <label class="color-btn" title="Свой цвет фона">
+              <input type="color" id="bgColor" value="#0b1220" aria-label="Свой цвет фона">
+              <span>Цвет</span>
+            </label>
+          </div>
+
+          <div class="custom-bg" id="customBgRow" hidden>
+            <img class="custom-bg__thumb" id="customBgThumb" alt="">
+            <span class="custom-bg__name" id="customBgName">Своё изображение</span>
+            <button class="btn btn--ghost btn--sm" id="customBgApply" type="button">Применить</button>
+            <button class="icon-btn icon-btn--ghost" id="customBgRemove" type="button" aria-label="Удалить изображение">
+              <svg class="ico" aria-hidden="true"><use href="#i-trash"></use></svg>
+            </button>
+          </div>
+
+          <p class="setting__hint">Пресеты, свой цвет или изображение. Фото хранится только на этом устройстве.</p>
+        </section>
+
+        <section class="setting setting--danger">
+          <h3>Сброс</h3>
+          <p class="setting__hint">Вернуть плитки и фон к исходному состоянию.</p>
+          <button class="btn btn--danger-ghost" id="resetAll" type="button">Сбросить страницу</button>
+        </section>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="menu" id="tileMenu" role="menu" aria-label="Действия с плиткой"></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toastText"></span>
+    <button id="toastAction" type="button" hidden></button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

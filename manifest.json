@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Dream Home Page",
+  "version": "1.0",
+  "description": "Домашняя страница с поиском, плитками сайтов и настройкой фона.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "host_permissions": [
+    "https://suggestqueries.google.com/*",
+    "https://suggest.yandex.ru/*",
+    "https://ac.duckduckgo.com/*"
+  ]
+}
